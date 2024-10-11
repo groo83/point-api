@@ -7,7 +7,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class PointCancelReqDto {
+public class PointUseCancelReqDto {
 
     @NotNull
     private Long orderId;

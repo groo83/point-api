@@ -21,7 +21,6 @@ public class PointSaveReqDto {
     @NotNull
     private Long amount;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime expiredDate;
 
     @ValidEnum(target = RewardType.class, message = "ORDER(주문) 또는 ADMINISTRATOR(관리자)만 입력해주세요.")

@@ -1,10 +1,7 @@
 package com.groo83.point.domain.point.api;
 
 import com.groo83.point.common.dto.DataResponse;
-import com.groo83.point.domain.point.dto.PointCancelReqDto;
-import com.groo83.point.domain.point.dto.PointSaveReqDto;
-import com.groo83.point.domain.point.dto.PointTransactionResDto;
-import com.groo83.point.domain.point.dto.PointUseReqDto;
+import com.groo83.point.domain.point.dto.*;
 import com.groo83.point.domain.point.service.PointTransactionService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -41,7 +38,7 @@ public class PointTransactionController {
     @ResponseStatus(value = HttpStatus.CREATED)
     public DataResponse<PointTransactionResDto> savedPointCancel(
             @PathVariable("memberId")  Long memberId,
-            @Valid @RequestBody PointCancelReqDto reqDto) {
+            @Valid @RequestBody PointSaveCancelReqDto reqDto) {
         PointTransactionResDto pointTransaction = transactionService.savedPointCancel(memberId, reqDto);
         return DataResponse.create(pointTransaction);
     }
@@ -50,7 +47,7 @@ public class PointTransactionController {
     @ResponseStatus(value = HttpStatus.CREATED)
     public DataResponse<PointTransactionResDto> usedPointCancel(
             @PathVariable("memberId")  Long memberId,
-            @Valid @RequestBody PointCancelReqDto reqDto) {
+            @Valid @RequestBody PointUseCancelReqDto reqDto) {
         PointTransactionResDto pointTransaction = transactionService.usedPointCancel(memberId, reqDto);
         return DataResponse.create(pointTransaction);
     }

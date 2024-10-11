@@ -5,10 +5,7 @@ import com.groo83.point.config.PointPolicyProperties;
 import com.groo83.point.domain.member.MemberPoint;
 import com.groo83.point.domain.member.repository.MemberPointRepository;
 import com.groo83.point.domain.point.PointTransaction;
-import com.groo83.point.domain.point.dto.PointCancelReqDto;
-import com.groo83.point.domain.point.dto.PointSaveReqDto;
-import com.groo83.point.domain.point.dto.PointTransactionResDto;
-import com.groo83.point.domain.point.dto.PointUseReqDto;
+import com.groo83.point.domain.point.dto.*;
 import com.groo83.point.domain.point.enums.TransactionType;
 import com.groo83.point.domain.point.repository.PointTransactionRepository;
 import com.groo83.point.event.PointEvent;
@@ -119,7 +116,7 @@ public class PointTransactionService {
     }
 
     @Transactional
-    public PointTransactionResDto savedPointCancel(Long memberId, PointCancelReqDto reqDto) {
+    public PointTransactionResDto savedPointCancel(Long memberId, PointSaveCancelReqDto reqDto) {
         MemberPoint member = findMember(memberId);
 
         // 주문 번호로 적립된 건 조회, 이미 적립 취소, 사용 처리된 건 제외
@@ -145,7 +142,7 @@ public class PointTransactionService {
     }
 
     @Transactional
-    public PointTransactionResDto usedPointCancel(Long memberId, PointCancelReqDto reqDto) {
+    public PointTransactionResDto usedPointCancel(Long memberId, PointUseCancelReqDto reqDto) {
         MemberPoint member = findMember(memberId);
 
         // 사용한 포인트 트랜잭션 조회
